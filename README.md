@@ -1,16 +1,34 @@
 # 3D_FCC_Track_scoring
 Code used for the analysis presented in Radiat. Env. Biophys. 60, 559-578 (2021) doi 10.1007/s00411-021-00936-4 and 10.48550/arxiv.2105.07159
 
-Source code 	last change	Description
-#IC_3D.f#	02.04.2021 17:08	Determines ionization clusters in particle tracks and saves the cluster positions (and their complexity) to an output file (prefix IC_).
-Uses subroutines in IC_3D_SUBS.f and ROI_3D_Init.f.
-IC_3D_SUBS.f	02.04.2021 17:08	Subroutine CLUSTR called from IC_3D after each track has been read and scores ICs in Wigner Seitz cells and calculates centers of gravity of the clusters 
-ROI_3D.f	17.04.2021 12:37	Reads track data (output files of IC_3D or original simulation data) and calculates and outputs 
-–	frequency distributions of the number of Wigner-Seitz cells in a (large) spherical region that receive ionization clusters for track at different impact parameters and “true” (infinite radial integral) and conditional (track intersects the spherical target) single event distributions  (output file name 3D_*.dat)
-–	bivariate distributions of Wigner Seitz cells containing single or multiple ionization clusters (Output file name 3B_*.dat)
-–	ratio of bivariate frequency distribution of Wigner Seitz cells containing single or multiple ionization clusters to product of marginal frequencies (Output file name 3C_*.dat)
-ROI_3D_Init.f	31.03.2021 13:01	Initializes the Bravais lattice used for scoring 
-ROI_3D_SUBS.f	17.04.2021 12:35	Subroutine TARG3D called from ROI_3D after each track has been read and scores ICs in Wigner Seitz cells 
+**Source code**  
+*last change*  
+Description  
+
+**IC_3D.f**  
+*02.04.2021 17:08*  
+Determines ionization clusters in particle tracks and saves the cluster positions (and their complexity) to an output file (prefix IC_).  
+Uses subroutines in IC_3D_SUBS.f and ROI_3D_Init.f.   
+
+**IC_3D_SUBS.f**  
+*02.04.2021 17:08*   
+Subroutine CLUSTR called from IC_3D after each track has been read and scores ICs in Wigner Seitz cells and calculates centers of gravity of the clusters 
+ 
+**ROI_3D.f**	 
+*17.04.2021 12:37*  
+Reads track data (output files of IC_3D or original simulation data) and calculates and outputs   
+–	frequency distributions of the number of Wigner-Seitz cells in a (large) spherical region that receive ionization clusters for track at different impact parameters and “true” (infinite radial integral) and conditional (track intersects the spherical target) single event distributions  (output file name 3D_*.dat)  
+–	bivariate distributions of Wigner Seitz cells containing single or multiple ionization clusters (Output file name 3B_*.dat)  
+–	ratio of bivariate frequency distribution of Wigner Seitz cells containing single or multiple ionization clusters to product of marginal frequencies (Output file name 3C_*.dat)    
+
+**ROI_3D_Init.f** 	 
+*31.03.2021 13:01*  
+Initializes the Bravais lattice used for scoring  
+
+**ROI_3D_SUBS.f**  
+*17.04.2021 12:35*  
+Subroutine TARG3D called from ROI_3D after each track has been read and scores ICs in Wigner Seitz cells 
+
 ME_ROI_3C.f	17.04.2021 13:07	Reads data from output files 3B_*.dat produced by ROI_3D and convolutes them with Binomial distributions of a given success probability such as to convert IC to DSB distributions. Outputs:
 –	MEA_ multi- and single event frequency distributions after convolution with binomial compared to frequency distributions of ionization clusters
 –	MEB_ bivariate multi-event frequency distribution of single and multiple ionization clusters
