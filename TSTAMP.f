@@ -1,0 +1,10 @@
+      CHARACTER*24 FUNCTION TSTAMP()
+      CHARACTER DATE*8, TIME*10, ZONE*5, TIMEST*24
+      INTEGER*4 IDT(8)
+      CALL DATE_AND_TIME(DATE,TIME,ZONE,IDT)
+C!              123456789 123456789 1234
+      TIMEST = 'DD-MMM-YYYY HH:MM +HH:MM'
+      TSTAMP=DATE(7:8)//'-'//DATE(5:6)//'-'//DATE(1:4)//' '//
+     &       TIME(1:2)//':'//TIME(3:4)//' '//ZONE(1:3)//':'//ZONE(4:5)
+      RETURN
+      END
